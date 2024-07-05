@@ -15,12 +15,22 @@ class Taller {
         this.vehiculos = new HashMap<>();
     }
 
-    public void registrarEntrada(Vehiculo vehiculo) {
+    public void registrarEntrada(Vehiculo vehiculo) throws Exception {
+    	String identificacionUnico = vehiculo.getMatricula() + vehiculo.getIdentificacion();
+    	
+    	if (vehiculos.containsKey(identificacionUnico)) {
+    		throw new Exception("El vehículo con matrícula " + vehiculo.getMatricula() + " e identificación " + vehiculo.getIdentificacion() + " ya existe.");
+        }
+    	
         vehiculos.put(vehiculo.getMatricula()+vehiculo.getIdentificacion(), vehiculo);
     }
 
-    public void registrarSalida(String identificacionUnica) {
-        vehiculos.remove(identificacionUnica);
+    public void registrarSalida(String identificacionUnica) throws Exception {
+    	if (!vehiculos.containsKey(identificacionUnica)) {
+            throw new Exception("No se encontró un vehículo con la identificación única " + identificacionUnica + ".");
+        }
+
+    	vehiculos.remove(identificacionUnica);
     }
 
     public void vehiculosEnTaller() {

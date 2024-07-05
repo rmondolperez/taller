@@ -8,7 +8,7 @@ import cu.anonymouscode.taller.models.TipoCombustible;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
     	
     	Taller mercedes = new Taller();
@@ -19,7 +19,7 @@ public class App
     	
     	mercedes.vehiculosEnTaller();
     	
-    	mercedes.registrarSalida("D4534");
+    	mercedes.registrarSalida("G1234");
     	
     	System.out.println("+++++++++++++++++++++++");
     	

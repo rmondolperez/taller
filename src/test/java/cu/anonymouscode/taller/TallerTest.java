@@ -32,7 +32,7 @@ public class TallerTest {
     }
 
     @Test
-    public void testRegistrarEntrada() {
+    public void testRegistrarEntrada() throws Exception {
         taller.registrarEntrada(diesel);
         taller.registrarEntrada(gasolina);
         taller.registrarEntrada(electrico);
@@ -42,7 +42,7 @@ public class TallerTest {
     }
 
     @Test
-    public void testRegistrarSalida() {
+    public void testRegistrarSalida() throws Exception {
         taller.registrarEntrada(gasolina);
         taller.registrarSalida(gasolina.getMatricula() + gasolina.getIdentificacion());
         assertFalse(taller.getVehiculos().containsKey(gasolina.getMatricula() + gasolina.getIdentificacion()));
